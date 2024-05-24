@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "717221513144",
+    "project_id": "air-line-7c9ce",
+    "storage_bucket": "air-line-7c9ce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:717221513144:android:6d39c45f71c1635e5a714d",
+        "android_client_info": {
+          "package_name": "com.example.flower_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJJXItrnseF7RvMhPQPu8wo1Rdy9zhsa0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
