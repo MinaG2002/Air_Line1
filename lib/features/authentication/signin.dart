@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, sort_child_properties_last, deprecated_member_use
 
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flower_app/core/shared/contants.dart';
 import 'package:flower_app/features/authentication/register.dart';
@@ -8,15 +9,43 @@ import 'package:flutter/material.dart';
 
 final _emailcontroller = TextEditingController();
 final _passwordcontroller = TextEditingController();
-Future signIN() async {
-  await FirebaseAuth.instance.signInWithEmailAndPassword(
-    email: _emailcontroller.text.trim(),
-    password: _passwordcontroller.text.trim(),
-  );
+
+class Login extends StatefulWidget {
+  const Login({Key? key}) : super(key: key);
+
+  @override
+  State<Login> createState() => _LoginState();
 }
 
-class Login extends StatelessWidget {
-  const Login({Key? key}) : super(key: key);
+class _LoginState extends State<Login> {
+  Future signIN() async {
+    try {
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: _emailcontroller.text, password: _passwordcontroller.text);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        AwesomeDialog(
+            dialogType: DialogType.error,
+            context: context,
+            //  title: "Error",
+            body: Text("No user found for that email"))
+          ..show();
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        AwesomeDialog(
+            dialogType: DialogType.error,
+            context: context,
+            //  title: "Error",
+            body: Text("Wrong password provided for that user."))
+          ..show();
+        print('Wrong password provided for that user.');
+      }
+    }
+    // await FirebaseAuth.instance.signInWithEmailAndPassword(
+    //   email: _emailcontroller.text.trim(),
+    //   password: _passwordcontroller.text.trim(),
+    // );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +108,9 @@ class Login extends StatelessWidget {
                             builder: (context) => const CustomNavBar()),
                       );
                     },
-                    onTap: signIN,
+                    onTap: () async {
+                      await signIN();
+                    },
                     child: Container(
                       decoration: BoxDecoration(
                           color: Color.fromARGB(255, 32, 51, 81),

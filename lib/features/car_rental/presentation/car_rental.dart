@@ -1,11 +1,10 @@
 import 'dart:async';
 
-import 'package:flower_app/core/global_widgets/categories_section.dart';
 import 'package:flower_app/core/global_widgets/choose_date.dart';
 import 'package:flower_app/core/global_widgets/choose_location.dart';
 import 'package:flower_app/core/global_widgets/header_details.dart';
 import 'package:flower_app/core/global_widgets/offers_slider.dart';
-import 'package:flower_app/core/global_widgets/search_button.dart';
+import 'package:flower_app/features/car_rental/domain/bottoncar.dart';
 import 'package:flower_app/features/car_rental/domain/deal_model.dart';
 import 'package:flower_app/features/home/domain/location_model.dart';
 import 'package:flower_app/features/payment/payment_car.dart';
@@ -39,7 +38,10 @@ class _CarRentalState extends State<CarRental> {
   ];
 
   List<Category> categories = [
-    Category(img: 'assets/flight.png', title: "Flights"),
+    Category(
+      img: 'assets/flight.png',
+      title: "Flights",
+    ),
     Category(img: 'assets/hotel.png', title: "Hotels"),
     Category(img: 'assets/carRental.png', title: "Car Rental"),
     Category(img: 'assets/countries.png', title: "Countries"),
@@ -139,7 +141,8 @@ class _CarRentalState extends State<CarRental> {
                 const SizedBox(
                   height: 16,
                 ),
-                const SearchButton(),
+                // const SearchButton(),
+                Btcar(),
                 const SizedBox(
                   height: 10,
                 ),
@@ -156,7 +159,7 @@ class _CarRentalState extends State<CarRental> {
             img2: "assets/car2.jpg",
             img3: "assets/car3.jpg",
           ),
-          CategoriesSection(categories: categories),
+          //  CategoriesSection(categories: categories),
           const SizedBox(
             height: 15,
           ),

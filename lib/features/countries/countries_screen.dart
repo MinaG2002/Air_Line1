@@ -1,4 +1,3 @@
-import 'package:flower_app/core/app_widgets/categories_list.dart';
 import 'package:flower_app/core/utils/images.dart';
 import 'package:flower_app/core/utils/text_style_helper.dart';
 import 'package:flower_app/features/countries/information_cun/Egypt.dart';
@@ -39,6 +38,7 @@ class CountriesScreen extends StatelessWidget {
     ];
     return SafeArea(
       child: SingleChildScrollView(
+        // scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.all(24),
         physics: const BouncingScrollPhysics(),
         child: Column(
@@ -55,14 +55,15 @@ class CountriesScreen extends StatelessWidget {
             const SizedBox(
               height: 40,
             ),
-            Text(
-              'Categories',
-              style: TextStyleHelper.subtitle19,
-            ),
+            // Text(
+            //   'Categories',
+            //   style: TextStyleHelper.subtitle19,
+            // ),
             const SizedBox(
               height: 20,
             ),
-            const CategoriesList(),
+            //  CategoriesMina(),
+            // CategoriesList(),
             const SizedBox(
               height: 20,
             ),

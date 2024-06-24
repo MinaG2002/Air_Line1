@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:flower_app/core/global_widgets/categories_section.dart';
 import 'package:flower_app/core/global_widgets/choose_date.dart';
 import 'package:flower_app/core/global_widgets/choose_location.dart';
 import 'package:flower_app/core/global_widgets/header_details.dart';
 import 'package:flower_app/core/global_widgets/offers_slider.dart';
-import 'package:flower_app/core/global_widgets/search_button.dart';
+import 'package:flower_app/features/home/ProdactHotel/ProductListHotel.dart';
+import 'package:flower_app/features/home/Prodactflight/flightspruduct.dart';
 import 'package:flower_app/features/home/domain/categories.dart';
 import 'package:flower_app/features/home/domain/location_model.dart';
 import 'package:flower_app/features/home/presentation/widgets/cabin_row.dart';
@@ -20,7 +20,9 @@ import '../domain/travellers.dart';
 import 'widgets/autocomplete.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  HomePage({
+    super.key,
+  });
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -232,7 +234,53 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(
                   height: 16,
                 ),
-                const SearchButton(),
+                // const SearchButton(),
+                //section search bottonnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+                Container(
+                  width: 136,
+                  height: 48,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: ElevatedButton(
+                    onLongPress: () {
+                      setState(() {
+                        if (flight == true) {
+                          print("object");
+                        }
+                      });
+                    },
+                    onPressed: () {
+                      setState(() {
+                        if (flight == true) {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Flightspruduct()),
+                          );
+                        } else {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Productlisthotel()),
+                          );
+                        }
+                      });
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                    ),
+                    child: const Text(
+                      'Search',
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'Baloo2',
+                          color: Colors.black),
+                    ),
+                  ),
+                ),
+                //end search botonnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
                 const SizedBox(
                   height: 10,
                 ),
@@ -249,7 +297,41 @@ class _HomePageState extends State<HomePage> {
             img2: "assets/russia.jpg",
             img3: "assets/meca.jpg",
           ),
-          CategoriesSection(categories: categories),
+          // const Row(
+          //   children: [
+          //     SizedBox(
+          //       width: 14,
+          //     ),
+          //     Text(
+          //       "Cate",
+          //       style: TextStyle(
+          //           decoration: TextDecoration.underline,
+          //           decorationThickness: 2,
+          //           fontFamily: 'Baloo2',
+          //           // fontWeight: FontWeight.bold,
+          //           fontSize: 20),
+          //     ),
+          //     Text(
+          //       "gories",
+          //       style: TextStyle(
+          //           fontFamily: 'Baloo2',
+          //           // fontWeight: FontWeight.bold,
+          //           fontSize: 20),
+          //     )
+          //   ],
+          // ),
+          // const Row(
+          //   children: [
+          //     Spacer(
+          //       flex: 1,
+          //     ),
+          //     CategoriesMina(),
+          //     Spacer(
+          //       flex: 1,
+          //     ),
+          //   ],
+          // ),
+          // CategoriesSection(categories: categories),
           const SizedBox(
             height: 20,
           ),
@@ -293,7 +375,7 @@ class _HomePageState extends State<HomePage> {
                   controller: _topDestinationController,
                   children: [
                     TopDestinations(
-                      img: "assets/pyramids.jpg",
+                      img: "images/Egypt.png",
                       onTap: () {
                         likeValue = !likeValue;
                         setState(() {});
@@ -301,7 +383,7 @@ class _HomePageState extends State<HomePage> {
                       likeValue: likeValue,
                     ),
                     TopDestinations(
-                      img: "assets/pyramids.jpg",
+                      img: "images/Saudy.png",
                       onTap: () {
                         likeValue = !likeValue;
                         setState(() {});
@@ -309,7 +391,15 @@ class _HomePageState extends State<HomePage> {
                       likeValue: likeValue,
                     ),
                     TopDestinations(
-                      img: "assets/pyramids.jpg",
+                      img: "images/italy.png",
+                      onTap: () {
+                        likeValue = !likeValue;
+                        setState(() {});
+                      },
+                      likeValue: likeValue,
+                    ),
+                    TopDestinations(
+                      img: "images/france.png",
                       onTap: () {
                         likeValue = !likeValue;
                         setState(() {});
@@ -324,7 +414,7 @@ class _HomePageState extends State<HomePage> {
                 left: size.width * 0.4,
                 child: SmoothPageIndicator(
                   controller: _pageController,
-                  count: 3,
+                  count: 4,
                   effect: const ExpandingDotsEffect(
                     activeDotColor: Colors.white,
                     dotWidth: 6,
@@ -332,7 +422,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   onDotClicked: (index) {
                     _pageController.animateToPage(index,
-                        duration: const Duration(microseconds: 500),
+                        duration: const Duration(microseconds: 100),
                         curve: Curves.easeInCirc);
                   },
                 ),

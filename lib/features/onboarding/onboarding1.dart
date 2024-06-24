@@ -13,12 +13,13 @@ class Onboarding1 extends StatelessWidget {
         body: Stack(children: [
       Container(
         height: MediaQuery.of(context).size.height * 1,
-        width: MediaQuery.of(context).size.height * 1,
+        width: MediaQuery.of(context).size.width * 1,
         decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage('images/Mina1.png'), fit: BoxFit.cover)),
       ),
       Positioned(
+        height: 300,
         bottom: 0,
         right: 0,
         left: 0,

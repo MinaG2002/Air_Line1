@@ -6,14 +6,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomNavBar extends StatefulWidget {
-  const CustomNavBar({super.key});
+  const CustomNavBar({super.key, this.selectedIndex});
 
+  final selectedIndex;
   @override
   State<CustomNavBar> createState() => _CustomNavBarState();
 }
 
 class _CustomNavBarState extends State<CustomNavBar> {
   int selectedIndex = 0;
+  // Void onItemTapped(int index) {
+  //   setState(() {
+  //     selectedIndex = index;
+  //   });
+  // }
 
   static List<Widget> screens = <Widget>[
     HomePage(),

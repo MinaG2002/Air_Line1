@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class TopDestinations extends StatefulWidget {
   TopDestinations(
@@ -40,7 +39,7 @@ class _TopDestinationScreenState extends State<TopDestinations> {
                 child: Row(
                   children: const [
                     Text(
-                      'Egypt',
+                      '',
                       style: TextStyle(
                         fontSize: 20,
                         color: Colors.white,
@@ -51,19 +50,19 @@ class _TopDestinationScreenState extends State<TopDestinations> {
                   ],
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 16),
-                    width: 40,
-                    height: 2,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: Colors.white),
-                  ),
-                ],
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.start,
+              //   children: [
+              //     Container(
+              //       margin: const EdgeInsets.symmetric(horizontal: 16),
+              //       width: 40,
+              //       height: 2,
+              //       decoration: BoxDecoration(
+              //           borderRadius: BorderRadius.circular(50),
+              //           color: Colors.white),
+              //     ),
+              //   ],
+              // ),
             ],
           ),
         )

@@ -1,3 +1,4 @@
+import 'package:flower_app/features/home/ProdactHotel/ProductListHotel.dart';
 import 'package:flutter/material.dart';
 
 class SearchButton extends StatelessWidget {
@@ -12,7 +13,14 @@ class SearchButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const Productlisthotel()),
+          );
+
+// Carsearch
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,
         ),

@@ -3,9 +3,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flower_app/features/Payment/Payment.dart';
 import 'package:flower_app/features/favourite/favourite_screen.dart';
-import 'package:flower_app/features/flipene/navbar/nav_bbb.dart';
 import 'package:flower_app/features/information/information.dart';
 import 'package:flower_app/features/nav_bar/nav_bar.dart';
+import 'package:flower_app/features/profile/recent/recent_searsh.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -17,7 +17,7 @@ class ProfileScreen extends StatelessWidget {
       {
         "iconn": Icon(Icons.wallet),
         "textt": "Recent Search",
-        'route': BottomNavBar()
+        'route': RecentSearch()
       },
       {
         "iconn": Icon(Icons.favorite_border),
@@ -133,8 +133,8 @@ class ProfileScreen extends StatelessWidget {
                           width: 11,
                         ),
                         ElevatedButton(
-                          onPressed: () {
-                            FirebaseAuth.instance.signOut();
+                          onPressed: () async {
+                            await FirebaseAuth.instance.signOut();
                           },
                           child: Text(
                             "Log Out",

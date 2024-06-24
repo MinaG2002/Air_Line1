@@ -7,6 +7,11 @@ class Notificationnn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: Container(
+        child: Column(
+          children: [],
+        ),
+      ),
       appBar: AppBar(
         leading: BackButton(
           color: Colors.white,

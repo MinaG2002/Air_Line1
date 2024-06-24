@@ -1,5 +1,4 @@
 import 'package:flower_app/core/utils/images.dart';
-import 'package:flower_app/features/countries/information_cun/Egypt.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesList extends StatelessWidget {
@@ -10,17 +9,21 @@ class CategoriesList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List content = [
-      {'title': 'Flight', 'image': AppImages.category1, 'route': EgyptScreen()},
-      {'title': 'Hotel', 'image': AppImages.category2, 'route': EgyptScreen()},
+      {
+        'title': 'Flight',
+        'image': AppImages.category1,
+      },
+      {
+        'title': 'Hotel',
+        'image': AppImages.category2,
+      },
       {
         'title': 'Car Rental',
         'image': AppImages.category3,
-        'route': EgyptScreen()
       },
       {
         'title': 'Countries ',
         'image': AppImages.category4,
-        'route': EgyptScreen()
       }
     ];
     return SizedBox(
@@ -46,6 +49,7 @@ class CategoriesList extends StatelessWidget {
                     color: Theme.of(context).colorScheme.primary,
                   ),
                 ),
+                // OnTap()(content[index][""])
               ],
             ),
           );
